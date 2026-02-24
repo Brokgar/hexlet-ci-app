@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Print Hello from Hexlet
+        uses: hexlet-components/hello-from-hexlet-action@release
+
       # Если проект на другом языке, замените или добавьте шаги установки зависимостей
 
       - name: Make Setup
