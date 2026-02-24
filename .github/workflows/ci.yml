@@ -1,0 +1,31 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (если проект на Node.js)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      # Если проект на другом языке, замените или добавьте шаги установки зависимостей
+
+      - name: Make Setup
+        run: make setup
+
+      - name: Run Linter
+        run: make lint
+
+      - name: Run Tests
+        run: make test
